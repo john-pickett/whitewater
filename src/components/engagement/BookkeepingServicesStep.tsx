@@ -10,9 +10,8 @@ export default function BookkeepingServicesStep({
   selectedServiceIds,
   onToggleService,
 }: BookkeepingServicesStepProps) {
-  const services = useServiceStore((state) =>
-    state.services.filter((s) => s.category === 'bookkeeping')
-  );
+  const allServices = useServiceStore((state) => state.services);
+  const services = allServices.filter((s) => s.category === 'bookkeeping');
 
   return (
     <FormGroup>
