@@ -9,15 +9,55 @@ interface EngagementLetterStepperProps {
   onClose?: () => void;
 }
 
-const steps = [
-  { label: 'Select Client', component: <SelectClientStep /> },
-  { label: 'Tax Services', component: <TaxServicesStep /> },
-  { label: 'Bookkeeping Services', component: <BookkeepingServicesStep /> },
-  { label: 'Summary', component: <SummaryStep /> },
-];
-
 export default function EngagementLetterStepper({ onClose }: EngagementLetterStepperProps) {
   const [activeStep, setActiveStep] = useState(0);
+  const [selectedClientId, setSelectedClientId] = useState<number | null>(null);
+  const [selectedServiceIds, setSelectedServiceIds] = useState<number[]>([]);
+
+  const handleToggleService = (id: number) => {
+    setSelectedServiceIds((prev) =>
+      prev.includes(id) ? prev.filter((sId) => sId !== id) : [...prev, id]
+    );
+  };
+
+  const steps = [
+    {
+      label: 'Select Client',
+      component: (
+        <SelectClientStep
+          selectedClientId={selectedClientId}
+          onSelectClient={setSelectedClientId}
+        />
+      ),
+    },
+    {
+      label: 'Tax Services',
+      component: (
+        <TaxServicesStep
+          selectedServiceIds={selectedServiceIds}
+          onToggleService={handleToggleService}
+        />
+      ),
+    },
+    {
+      label: 'Bookkeeping Services',
+      component: (
+        <BookkeepingServicesStep
+          selectedServiceIds={selectedServiceIds}
+          onToggleService={handleToggleService}
+        />
+      ),
+    },
+    {
+      label: 'Summary',
+      component: (
+        <SummaryStep
+          selectedClientId={selectedClientId}
+          selectedServiceIds={selectedServiceIds}
+        />
+      ),
+    },
+  ];
 
   const handleNext = () => {
     if (activeStep === steps.length - 1) {
@@ -47,7 +87,9 @@ export default function EngagementLetterStepper({ onClose }: EngagementLetterSte
           Back
         </Button>
         <Box sx={{ flex: '1 1 auto' }} />
-        <Button onClick={handleNext}>{activeStep === steps.length - 1 ? 'Finish' : 'Next'}</Button>
+        <Button onClick={handleNext}>
+          {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+        </Button>
       </Box>
     </Box>
   );
