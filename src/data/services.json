@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "Tax Preparation", "cost": 450 },
+  { "id": 2, "name": "Financial Auditing", "cost": 320 },
+  { "id": 3, "name": "Payroll Management", "cost": 275 },
+  { "id": 4, "name": "Bookkeeping", "cost": 180 },
+  { "id": 5, "name": "Budget Planning", "cost": 150 },
+  { "id": 6, "name": "Invoice Processing", "cost": 210 },
+  { "id": 7, "name": "Accounts Receivable", "cost": 400 },
+  { "id": 8, "name": "Accounts Payable", "cost": 120 },
+  { "id": 9, "name": "Compliance Review", "cost": 480 },
+  { "id": 10, "name": "Financial Reporting", "cost": 500 },
+  { "id": 11, "name": "Expense Tracking", "cost": 390 },
+  { "id": 12, "name": "Forensic Accounting", "cost": 350 },
+  { "id": 13, "name": "Tax Consulting", "cost": 260 },
+  { "id": 14, "name": "Risk Assessment", "cost": 420 },
+  { "id": 15, "name": "Investment Advisory", "cost": 330 },
+  { "id": 16, "name": "Cash Flow Analysis", "cost": 370 },
+  { "id": 17, "name": "Estate Planning", "cost": 295 },
+  { "id": 18, "name": "Retirement Planning", "cost": 160 },
+  { "id": 19, "name": "Internal Controls Review", "cost": 140 },
+  { "id": 20, "name": "Financial Statement Preparation", "cost": 310 }
+]
