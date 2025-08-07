@@ -10,9 +10,8 @@ export default function TaxServicesStep({
   selectedServiceIds,
   onToggleService,
 }: TaxServicesStepProps) {
-  const services = useServiceStore((state) =>
-    state.services.filter((s) => s.category === 'tax')
-  );
+  const allServices = useServiceStore((state) => state.services);
+  const services = allServices.filter((s) => s.category === 'tax');
 
   return (
     <FormGroup>
