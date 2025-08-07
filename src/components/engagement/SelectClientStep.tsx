@@ -21,11 +21,14 @@ export default function SelectClientStep({
       <Typography variant="h6" gutterBottom>
         Choose a client
       </Typography>
-      <RadioGroup value={selectedClientId ?? ''} onChange={handleChange}>
+      <RadioGroup
+        value={selectedClientId !== null ? String(selectedClientId) : ''}
+        onChange={handleChange}
+      >
         {clients.map((client) => (
           <FormControlLabel
             key={client.id}
-            value={client.id}
+            value={client.id.toString()}
             control={<Radio />}
             label={client.name}
           />
